@@ -43,7 +43,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const fetchBooks = async () => {
       try {
-        const response = await axios.get<Book[]>('http://localhost:8080/books');
+        const response = await axios.get<Book[]>('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1:9090/books');
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
@@ -52,7 +52,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const addBook = async () => {
       try {
-        await axios.post('http://localhost:8080/books', newBook);
+        await axios.post('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1:9090/books', newBook);
         setNewBook({
           id: 0,
           book_title: '',
@@ -70,7 +70,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const getBookById = async () => {
       try {
-        const response = await axios.get<Book>(`http://localhost:8080/books/${bookIdToGet}`);
+        const response = await axios.get<Book>(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1:9090/books/${bookIdToGet}`);
         setSelectedBook(response.data);
       } catch (error) {
         console.error('Error fetching book by ID:', error);
@@ -79,7 +79,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const updateBook = async () => {
       try {
-        await axios.put('http://localhost:8080/books', updatedBook);
+        await axios.put('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1:9090/books', updatedBook);
         setUpdatedBook({
           id: 0,
           book_title: '',
@@ -97,7 +97,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const deleteBook = async () => {
       try {
-        await axios.delete(`http://localhost:8080/books/${bookIdToDelete}`);
+        await axios.delete(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1:9090/books/${bookIdToDelete}`);
         setBookIdToDelete(0);
         fetchBooks();
       } catch (error) {
