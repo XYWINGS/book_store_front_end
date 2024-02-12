@@ -1,7 +1,7 @@
 {
     "clientID": "Ti8X5L5GvvDMg1qTKcZb1i9LVx8a",
     "baseUrl": "https://api.asgardeo.io/t/iorg",
-    "signInRedirectURL": "https://localhost:3000",
-    "signOutRedirectURL": "https://localhost:3000",
+    "signInRedirectURL": "https://5debbc07-e501-49bf-b27f-769ba7d122e7.e1-us-east-azure.choreoapps.dev",
+    "signOutRedirectURL": "https://5debbc07-e501-49bf-b27f-769ba7d122e7.e1-us-east-azure.choreoapps.dev",
     "scope": ["profile"]
 }

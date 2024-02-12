@@ -57131,7 +57131,7 @@ var vanilla = (createState) => {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"clientID":"","baseUrl":"","signInRedirectURL":"https://localhost:3000","signOutRedirectURL":"https://localhost:3000","scope":["profile"]}');
+module.exports = JSON.parse('{"clientID":"","baseUrl":"","signInRedirectURL":"https://5debbc07-e501-49bf-b27f-769ba7d122e7.e1-us-east-azure.choreoapps.dev","signOutRedirectURL":"https://5debbc07-e501-49bf-b27f-769ba7d122e7.e1-us-east-azure.choreoapps.dev","scope":["profile"]}');
 
 /***/ })
 

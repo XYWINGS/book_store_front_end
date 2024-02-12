@@ -43,7 +43,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const fetchBooks = async () => {
       try {
-        const response = await axios.get<Book[]>('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1');
+        const response = await axios.get<Book[]>('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0');
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
@@ -52,7 +52,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const addBook = async () => {
       try {
-        await axios.post('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1', newBook);
+        await axios.post('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0', newBook);
         setNewBook({
           id: 0,
           book_title: '',
@@ -70,7 +70,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const getBookById = async () => {
       try {
-        const response = await axios.get<Book>(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1/${bookIdToGet}`);
+        const response = await axios.get<Book>(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/${bookIdToGet}`);
         setSelectedBook(response.data);
       } catch (error) {
         console.error('Error fetching book by ID:', error);
@@ -79,7 +79,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const updateBook = async () => {
       try {
-        await axios.put('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1', updatedBook);
+        await axios.put('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0', updatedBook);
         setUpdatedBook({
           id: 0,
           book_title: '',
@@ -97,7 +97,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
   
     const deleteBook = async () => {
       try {
-        await axios.delete(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1/${bookIdToDelete}`);
+        await axios.delete(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/${bookIdToDelete}`);
         setBookIdToDelete(0);
         fetchBooks();
       } catch (error) {
