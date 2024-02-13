@@ -248,6 +248,34 @@ export const BookStore: FunctionComponent = (): ReactElement => {
             onChange={e => setUpdatedBook({ ...updatedBook, author: e.target.value })}
             placeholder="Author"
           />
+           <label>Category:</label>
+           <input
+            type="text"
+            value={updatedBook.category}
+            onChange={e => setUpdatedBook({ ...updatedBook, category: e.target.value })}
+            placeholder="Category"
+          />
+          <label>Number of Copies:</label>
+          <input
+            type="number"
+            value={updatedBook.copies_in_stock}
+            onChange={e => setUpdatedBook({ ...updatedBook, copies_in_stock: parseInt(e.target.value) })}
+            placeholder="Number of Copies"
+          />
+          <label>LKR:</label>
+          <input
+            type="number"
+            value={updatedBook.price}
+            onChange={e => setUpdatedBook({ ...updatedBook, price: parseInt(e.target.value) })}
+            placeholder="LKR"
+          />
+          <label>Year:</label>
+          <input
+            type="number"
+            value={updatedBook.published_year}
+            onChange={e => setUpdatedBook({ ...updatedBook, published_year: parseInt(e.target.value) })}
+            placeholder="Year"
+          />
           <button onClick={updateBook}>Update Book</button>
         </div>
         <div className="delete-book">
