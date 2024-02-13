@@ -2,6 +2,7 @@
 import React, { FunctionComponent, ReactElement, useEffect, useState } from "react";
 import axios from 'axios';
 import './book-store.css'
+import { useAuthContext } from "@asgardeo/auth-react";
 
 interface Book {
     id: number;
@@ -14,6 +15,9 @@ interface Book {
   }
 
 export const BookStore: FunctionComponent = (): ReactElement => {
+  const {
+    getAccessToken,
+  } = useAuthContext();
     const [books, setBooks] = useState<Book[]>([]);
     const [newBook, setNewBook] = useState<Book>({
       id: 0,
@@ -41,14 +45,30 @@ export const BookStore: FunctionComponent = (): ReactElement => {
       fetchBooks();
     }, []);
   
+    // const fetchBooks = async () => {
+    //   try {
+    //     const response = await axios.get<Book[]>('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0');
+    //     setBooks(response.data);
+    //   } catch (error) {
+    //     console.error('Error fetching books:', error);
+    //   }
+    // };
     const fetchBooks = async () => {
       try {
-        const response = await axios.get<Book[]>('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0');
+        const accessToken = await getAccessToken();
+        const response = await axios.get<Book[]>('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0', {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + accessToken,
+            "x-jwt-assertion": accessToken,
+          }
+        });
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
       }
     };
+    
   
     const addBook = async () => {
       try {
