@@ -71,8 +71,15 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     
   
     const addBook = async () => {
+      const accessToken = await getAccessToken();
       try {
-        await axios.post('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0', newBook);
+        await axios.post('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0', newBook, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + accessToken,
+            "x-jwt-assertion": accessToken,
+          }
+        });
         setNewBook({
           id: 0,
           book_title: '',
@@ -89,17 +96,30 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     };
   
     const getBookById = async () => {
+      const accessToken = await getAccessToken();
       try {
-        const response = await axios.get<Book>(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/${bookIdToGet}`);
-        setSelectedBook(response.data);
+        const response = await axios.get<Book>(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/${bookIdToGet}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + accessToken,
+            "x-jwt-assertion": accessToken,
+          }
+        });
       } catch (error) {
         console.error('Error fetching book by ID:', error);
       }
     };
   
     const updateBook = async () => {
+      const accessToken = await getAccessToken();
       try {
-        await axios.put('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0', updatedBook);
+        await axios.put('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0', updatedBook, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + accessToken,
+            "x-jwt-assertion": accessToken,
+          }
+        });
         setUpdatedBook({
           id: 0,
           book_title: '',
@@ -116,8 +136,15 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     };
   
     const deleteBook = async () => {
+      const accessToken = await getAccessToken();
       try {
-        await axios.delete(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/${bookIdToDelete}`);
+        await axios.delete(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/${bookIdToDelete}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + accessToken,
+            "x-jwt-assertion": accessToken,
+          }
+        });
         setBookIdToDelete(0);
         fetchBooks();
       } catch (error) {
