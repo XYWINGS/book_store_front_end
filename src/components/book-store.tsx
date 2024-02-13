@@ -105,6 +105,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
             "x-jwt-assertion": accessToken,
           }
         });
+        setSelectedBook(response.data);
       } catch (error) {
         console.error('Error fetching book by ID:', error);
       }
