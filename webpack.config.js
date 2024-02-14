@@ -101,7 +101,7 @@ module.exports = async () => {
             })
         ],
         resolve: {
-            extensions: [ ".tsx", ".ts", ".js", ".json" ]
+            extensions: [ ".tsx", ".ts", ".js", ".json" ],
         }
     });
 };

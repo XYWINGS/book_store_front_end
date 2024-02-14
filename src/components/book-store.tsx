@@ -4,7 +4,9 @@ import axios from 'axios';
 import './book-store.css'
 import { useAuthContext } from "@asgardeo/auth-react";
 import dotenv from 'dotenv';
-dotenv.config();
+// dotenv.config();
+
+// const HOST = process.env.HOST || "localhost";
 
 interface Book {
     id: number;
@@ -43,8 +45,10 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const [bookIdToGet, setBookIdToGet] = useState<number>(0);
     const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
-    const BACKEND_ENDPOINT = process.env.BACKEND_ENDPOINT
+    // const API = process.env.BACKEND_ENDPOINT
 
+
+  
     useEffect(() => {
       fetchBooks();
     }, []);
@@ -52,7 +56,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const fetchBooks = async () => {
       try {
         const accessToken = await getAccessToken();
-        const response = await axios.get<Book[]>(BACKEND_ENDPOINT, {
+        const response = await axios.get<Book[]>('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/books', {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
@@ -69,7 +73,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const addBook = async () => {
       const accessToken = await getAccessToken();
       try {
-        await axios.post(BACKEND_ENDPOINT, newBook, {
+        await axios.post('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/books', newBook, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
@@ -94,7 +98,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const getBookById = async () => {
       const accessToken = await getAccessToken();
       try {
-        const response = await axios.get<Book>(BACKEND_ENDPOINT+bookIdToGet, {
+        const response = await axios.get<Book>(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/books/${bookIdToGet}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
@@ -110,7 +114,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const updateBook = async () => {
       const accessToken = await getAccessToken();
       try {
-        await axios.put(BACKEND_ENDPOINT, updatedBook, {
+        await axios.put('https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/books', updatedBook, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
@@ -135,7 +139,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const deleteBook = async () => {
       const accessToken = await getAccessToken();
       try {
-        await axios.delete(BACKEND_ENDPOINT+bookIdToDelete, {
+        await axios.delete(`https://04ef0bb4-e44c-469a-b881-d5e935130fb2-dev.e1-us-east-azure.choreoapis.dev/kqrg/bookstorebackend/books-2e9/v1.0/books/${bookIdToDelete}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
