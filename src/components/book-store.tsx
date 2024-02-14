@@ -159,6 +159,14 @@ export const BookStore: FunctionComponent = (): ReactElement => {
            <div className="container">
       <div className="add-update-delete">
         <div className="add-book">
+        <h2>Add Book</h2>
+          <label>ID:</label>
+          <input
+            type="number"
+            value={newBook.book_title}
+            onChange={e => setNewBook({ ...newBook, id: parseInt(e.target.value) })}
+            placeholder="Title"
+          />
           <h2>Add Book</h2>
           <label>Title:</label>
           <input
