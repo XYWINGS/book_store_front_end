@@ -1,0 +1,7 @@
+{
+    "clientID": "MfYnsn0Meezx2ishrd3PI39ju8Ea",
+    "baseUrl": "https://api.asgardeo.io/t/iorg",
+    "signInRedirectURL": "https://2ad426ac-4769-4334-b57f-9d6a27e02d59.e1-us-east-azure.choreoapps.dev",
+    "signOutRedirectURL": "https://2ad426ac-4769-4334-b57f-9d6a27e02d59.e1-us-east-azure.choreoapps.dev",
+    "scope": ["profile"]
+}
