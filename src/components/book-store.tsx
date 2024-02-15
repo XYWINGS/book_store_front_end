@@ -3,11 +3,6 @@ import React, { FunctionComponent, ReactElement, useEffect, useState } from "rea
 import axios from 'axios';
 import './book-store.css'
 import { useAuthContext } from "@asgardeo/auth-react";
-import dotenv from 'dotenv';
-// dotenv.config();
-
-// const HOST = process.env.HOST || "localhost";
-
 interface Book {
     id: number;
     book_title: string;
