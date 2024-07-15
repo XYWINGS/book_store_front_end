@@ -8,6 +8,7 @@ import authConfig from "./config.json";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/home.js";
 
+//edited again
 const AppContent = () => {
   const { error } = useAuthContext();
 
