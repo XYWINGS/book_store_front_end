@@ -48,7 +48,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
       fetchBooks();
     }, []);
 
-    const backenURL = "https://8f1a98f4-7d3b-4e65-9c8a-20cb7bf0f4aa-prod.e1-us-east-azure.choreoapis.dev/bookstore/back-end/v1.0/"
+    const backenURL = "https://8f1a98f4-7d3b-4e65-9c8a-20cb7bf0f4aa-prod.e1-us-east-azure.choreoapis.dev/bookstore/back-end/v1/"
   
     const fetchBooks = async () => {
       try {
