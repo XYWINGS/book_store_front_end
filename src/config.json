@@ -1,6 +1,6 @@
  {
     "clientID": "vgj7CLyZ19jP5aNuXufR2kyVw9Ea",
     "baseUrl": "https://api.asgardeo.io/t/orgaau9z",
-    "signInRedirectURL": "https://a5265b84-45ea-468f-b4f9-3f64f09e0a7d.e1-us-east-azure.choreoapps.dev",
-    "signOutRedirectURL": "https://a5265b84-45ea-468f-b4f9-3f64f09e0a7d.e1-us-east-azure.choreoapps.dev"
+    "signInRedirectURL": "https://92553d3f-7067-4d05-909c-c2f8ed8a6146.e1-us-east-azure.choreoapps.dev",
+    "signOutRedirectURL": "https://92553d3f-7067-4d05-909c-c2f8ed8a6146.e1-us-east-azure.choreoapps.dev"
 }
