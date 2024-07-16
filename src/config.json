@@ -1,10 +1,6 @@
-window.config = {
-    apiUrl: 
-        "/choreo-apis/bookstore/back-end/v1",
-    auth: {
-        "clientID": "huYN5H7HEiFB0teKWuazV2dKdKIa",
-        "baseUrl": "https://api.asgardeo.io/t/orgaau9z",
-        "signInRedirectURL": "https://75d38388-3ce0-4309-8a84-ebc8c67d6400.e1-us-east-azure.choreoapps.dev",
-        "signOutRedirectURL": "https://75d38388-3ce0-4309-8a84-ebc8c67d6400.e1-us-east-azure.choreoapps.dev"
-    },
-};
+ {
+    "clientID": "vgj7CLyZ19jP5aNuXufR2kyVw9Ea",
+    "baseUrl": "https://api.asgardeo.io/t/orgaau9z",
+    "signInRedirectURL": "https://75d38388-3ce0-4309-8a84-ebc8c67d6400.e1-us-east-azure.choreoapps.dev",
+    "signOutRedirectURL": "https://75d38388-3ce0-4309-8a84-ebc8c67d6400.e1-us-east-azure.choreoapps.dev"
+}
