@@ -48,12 +48,12 @@ export const BookStore: FunctionComponent = (): ReactElement => {
       fetchBooks();
     }, []);
 
-    const backenURL = "https://8f1a98f4-7d3b-4e65-9c8a-20cb7bf0f4aa-dev.e1-us-east-azure.choreoapis.dev/bookstore/back-end/v1"
+    const backenURL = "https://8f1a98f4-7d3b-4e65-9c8a-20cb7bf0f4aa-prod.e1-us-east-azure.choreoapis.dev/bookstore/back-end/v1.0/"
   
     const fetchBooks = async () => {
       try {
         const accessToken = await getAccessToken();
-        const response = await axios.get<Book[]>(`${backenURL}/books`, {
+        const response = await axios.get<Book[]>(`${backenURL}books`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
@@ -95,7 +95,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const getBookById = async () => {
       const accessToken = await getAccessToken();
       try {
-        const response = await axios.get<Book>(`${backenURL}/${bookIdToGet}`, {
+        const response = await axios.get<Book>(`${backenURL}${bookIdToGet}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
@@ -136,7 +136,7 @@ export const BookStore: FunctionComponent = (): ReactElement => {
     const deleteBook = async () => {
       const accessToken = await getAccessToken();
       try {
-        await axios.delete(`${backenURL}/${bookIdToDelete}`, {
+        await axios.delete(`${backenURL}${bookIdToDelete}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + accessToken,
